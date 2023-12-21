@@ -1,4 +1,19 @@
-<button mat-raised-button routerLink="/houses">Houses</button>
-<button mat-raised-button routerLink="/persons">Persons</button>
-<button mat-raised-button routerLink="/quotes">Quotes</button>
-<router-outlet></router-outlet>
+
+<div class="container">
+    <div class="row text-center">
+      <div class="col">
+        <button mat-raised-button routerLink="/houses">Houses</button>
+      </div>
+      <div class="col">
+        <button mat-raised-button routerLink="/persons">Persons</button>
+      </div>
+      <div class="col">
+        <button mat-raised-button routerLink="/quotes">Quotes</button>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col">
+            <router-outlet></router-outlet>
+        </div>
+      </div>
+  </div>

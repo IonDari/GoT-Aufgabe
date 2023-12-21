@@ -1,16 +1,26 @@
 
-<mat-form-field>
-    <input matInput placeholder="Suche" [(ngModel)]="searchQuery" (keyup)="onSearchChange()" />
-</mat-form-field>
-<mat-list>
-  @for (item of filteredHouses; track item; let index = $index) {
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-        <mat-panel-title> {{ item.name }} </mat-panel-title>
-        </mat-expansion-panel-header>
-        @for (member of item.members; track member; let index = $index) {
-           <p> {{ member.name }} </p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="searchlabel">
+        <input matInput placeholder="Suche" [(ngModel)]="searchQuery" (keyup)="onSearchChange()" />
+    </mat-form-field>    
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-list>
+        @for (item of filteredHouses; track item; let index = $index) {
+          <mat-expansion-panel class="listitem">
+              <mat-expansion-panel-header>
+              <mat-panel-title> {{ item.name }} </mat-panel-title>
+              </mat-expansion-panel-header>
+              @for (member of item.members; track member; let index = $index) {
+                 <p> {{ member.name }} </p>
+              }
+          </mat-expansion-panel>
         }
-    </mat-expansion-panel>
-  }
-</mat-list>
+      </mat-list>
+    </div>
+  </div>
+</div>

@@ -37,7 +37,6 @@ export class PersonsComponent implements OnInit {
     });
   }
 
-
   openedPanelIndex: number | null = null;
   onPanelClick(index: number): void {
     if (this.openedPanelIndex !== null && this.openedPanelIndex !== index) {

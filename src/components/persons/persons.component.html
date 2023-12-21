@@ -1,17 +1,30 @@
-<mat-form-field>
-    <input matInput placeholder="Suche" [(ngModel)]="searchQuery" (keyup)="onSearchChange()" />
-  </mat-form-field>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="searchlabel">
+        <input matInput placeholder="Suche" [(ngModel)]="searchQuery" (keyup)="onSearchChange()" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-list>
+        <mat-expansion-panel class="listitem" *ngFor="let item of filteredPersons; let i = index" 
+        (opened)="onPanelClick(i)">
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{ item.name }}</mat-panel-title>
+            <mat-panel-description>{{ item.house ? item.house.name : '-Keinem Haus zugeordnet-' }}</mat-panel-description>
+          </mat-expansion-panel-header>
+          <button mat-raised-button (click)="getPersonQuotes(item.slug)">New Quotes</button>
+      
+          <p *ngFor="let quote of quotes;">"{{quote.sentence}}"</p>
+        </mat-expansion-panel>
+      </mat-list>
+    </div>
+  </div>
+</div>
+
+
   
-  <mat-list>
-    <mat-expansion-panel *ngFor="let item of filteredPersons; let i = index" 
-    (opened)="onPanelClick(i)">
-      <mat-expansion-panel-header>
-        <mat-panel-title>{{ item.name }}</mat-panel-title>
-        <mat-panel-description>{{ item.house ? item.house.name : '-Keinem Haus zugeordnet-' }}</mat-panel-description>
-      </mat-expansion-panel-header>
-      <button mat-raised-button (click)="getPersonQuotes(item.slug)">New Quotes</button>
   
-      <p *ngFor="let quote of quotes;">"{{quote.sentence}}"</p>
-    </mat-expansion-panel>
-  </mat-list>
   
